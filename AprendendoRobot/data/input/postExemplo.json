@@ -1,0 +1,12 @@
+{{
+        "title": "Teste api {NameUser_git}",
+        "body": "{NameUser_git} testando api",
+        "assignes": [
+            "{NameUser_git}"
+        ],
+        "labels": [
+            "{campo}"
+        ]
+}}
+
+
