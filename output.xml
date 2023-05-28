@@ -1,29 +1,269 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.1 (Python 3.11.0 on win32)" generated="20221221 21:07:04.624" rpa="false" schemaversion="3">
-<suite id="s1" name="Argumentos" source="c:\Users\danie\OneDrive\Área de Trabalho\AutomacaoRobotFramework\AutomacaoWeb\argumentos.robot">
-<test id="s1-t1" name="Imprimindo um e-mail customizado e aleatório" line="12">
-<kw name="Criar e-mail customizado e aleatório">
-<var>${EMAIL_CRIADO}</var>
-<arg>${PESSOA.nome}</arg>
-<arg>${PESSOA.sobrenome}</arg>
-<kw name="Set Variable" library="BuiltIn">
-<var>${EMAIL_FINAL}</var>
-<arg>${NOME}${SOBRENOME}${PALAVRA}@testerobot.com</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20221221 21:07:11.402" level="INFO">${EMAIL_FINAL} = FaFakerLibrary.Last nameFakerLibrary.Word@testerobot.com</msg>
-<status status="PASS" starttime="20221221 21:07:11.401" endtime="20221221 21:07:11.426"/>
+<robot generator="Robot 6.0.1 (Python 3.11.0 on win32)" generated="20230528 15:51:46.731" rpa="false" schemaversion="3">
+<suite id="s1" name="Conferindo Json" source="C:\Users\danie\OneDrive\Área de Trabalho\AutomacaoRobotFramework\AutomacaoAPI\conferindo_json.robot">
+<test id="s1-t1" name="Exemplo: Conferindo JSON complexo" line="10">
+<kw name="Confere objetos e sub-objetos do JSON">
+<kw name="Pega JSON">
+<var>${MEU_JSON_COMPLEXO}</var>
+<kw name="Get File" library="OperatingSystem">
+<var>${MEU_JSON_COMPLEXO}</var>
+<arg>C:\\Users\\danie\\OneDrive\\Área de Trabalho\\AutomacaoRobotFramework\\AutomacaoAPI/data/json_complexo.json</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20230528 15:51:46.857" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\danie\OneDrive\Área de Trabalho\AutomacaoRobotFramework\AutomacaoAPI\data\json_complexo.json"&gt;C:\Users\danie\OneDrive\Área de Trabalho\AutomacaoRobotFramework\AutomacaoAPI\data\json_complexo.json&lt;/a&gt;'.</msg>
+<msg timestamp="20230528 15:51:46.858" level="INFO">${MEU_JSON_COMPLEXO} = {
+    "pessoa": {
+        "nome": {
+            "primeiro_nome": "mayara",
+            "nomes_do_meio": "ribeiro",
+            "ultimo_nome": "fernandes",
+            "apelido": "May"
+        },
+     ...</msg>
+<status status="PASS" starttime="20230528 15:51:46.857" endtime="20230528 15:51:46.858"/>
 </kw>
-<msg timestamp="20221221 21:07:11.428" level="INFO">${EMAIL_CRIADO} = FaFakerLibrary.Last nameFakerLibrary.Word@testerobot.com</msg>
-<status status="PASS" starttime="20221221 21:07:11.394" endtime="20221221 21:07:11.429"/>
+<kw name="To Json" library="RequestsLibrary">
+<var>${MEU_JSON_COMPLEXO}</var>
+<arg>${MEU_JSON_COMPLEXO}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<msg timestamp="20230528 15:51:46.858" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg timestamp="20230528 15:51:46.860" level="INFO">To JSON using : content={
+    "pessoa": {
+        "nome": {
+            "primeiro_nome": "mayara",
+            "nomes_do_meio": "ribeiro",
+            "ultimo_nome": "fernandes",
+            "apelido": "May"
+        },
+        "hobbies": {
+            "livros": [
+                {
+                    "titulo": "O Símbolo Perdido",
+                    "autor": "Dan Brown"
+                },
+                {
+                    "titulo": "Sócios no Crime",
+                    "autor": "Agatha Christie"
+                },
+                {
+                    "titulo": "Fortaleza Digital",
+                    "autor": "Dan Brown"
+                }
+            ],
+            "games": {
+                "PC": [
+                    "World Of Warcraft",
+                    "Last War",
+                    "Aika"
+                ],
+                "Xbox": [
+                    "Plants vs Zombies",
+                    "Battle Field",
+                    "Diablo III"
+                ]
+            }
+        }
+    }
+}
+ </msg>
+<msg timestamp="20230528 15:51:46.860" level="INFO">To JSON using : pretty_print=False </msg>
+<msg timestamp="20230528 15:51:46.860" level="INFO">${MEU_JSON_COMPLEXO} = {'pessoa': {'nome': {'primeiro_nome': 'mayara', 'nomes_do_meio': 'ribeiro', 'ultimo_nome': 'fernandes', 'apelido': 'May'}, 'hobbies': {'livros': [{'titulo': 'O Símbolo Perdido', 'autor': 'Dan Brown'},...</msg>
+<status status="PASS" starttime="20230528 15:51:46.858" endtime="20230528 15:51:46.860"/>
 </kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${EMAIL_CRIADO}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20221221 21:07:11.432" endtime="20221221 21:07:11.435"/>
+<msg timestamp="20230528 15:51:46.861" level="INFO">${MEU_JSON_COMPLEXO} = {'pessoa': {'nome': {'primeiro_nome': 'mayara', 'nomes_do_meio': 'ribeiro', 'ultimo_nome': 'fernandes', 'apelido': 'May'}, 'hobbies': {'livros': [{'titulo': 'O Símbolo Perdido', 'autor': 'Dan Brown'},...</msg>
+<status status="PASS" starttime="20230528 15:51:46.857" endtime="20230528 15:51:46.861"/>
 </kw>
-<status status="PASS" starttime="20221221 21:07:11.391" endtime="20221221 21:07:11.438"/>
+<kw name="To Json" library="RequestsLibrary">
+<var>${MEU_DICT_ESPERADO}</var>
+<arg>${MEU_DICT_ESPERADO}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<msg timestamp="20230528 15:51:46.861" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg timestamp="20230528 15:51:46.862" level="INFO">To JSON using : content={"primeiro_nome": "mayara", "nomes_do_meio": "ribeiro", "ultimo_nome": "fernandes", "apelido": "May"} </msg>
+<msg timestamp="20230528 15:51:46.862" level="INFO">To JSON using : pretty_print=False </msg>
+<msg timestamp="20230528 15:51:46.862" level="INFO">${MEU_DICT_ESPERADO} = {'primeiro_nome': 'mayara', 'nomes_do_meio': 'ribeiro', 'ultimo_nome': 'fernandes', 'apelido': 'May'}</msg>
+<status status="PASS" starttime="20230528 15:51:46.861" endtime="20230528 15:51:46.862"/>
+</kw>
+<kw name="Dictionary Should Contain Sub Dictionary" library="Collections">
+<arg>${MEU_JSON_COMPLEXO["pessoa"]["nome"]}</arg>
+<arg>${MEU_DICT_ESPERADO}</arg>
+<doc>Fails unless all items in ``dict2`` are found from ``dict1``.</doc>
+<status status="PASS" starttime="20230528 15:51:46.862" endtime="20230528 15:51:46.864"/>
+</kw>
+<kw name="Dictionary Should Contain Item" library="Collections">
+<arg>${MEU_JSON_COMPLEXO["pessoa"]["nome"]}</arg>
+<arg>apelido</arg>
+<arg>May</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" starttime="20230528 15:51:46.864" endtime="20230528 15:51:46.865"/>
+</kw>
+<kw name="Dictionary Should Contain Item" library="Collections">
+<arg>${MEU_JSON_COMPLEXO["pessoa"]["hobbies"]["livros"][0]}</arg>
+<arg>titulo</arg>
+<arg>O Símbolo Perdido</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" starttime="20230528 15:51:46.865" endtime="20230528 15:51:46.865"/>
+</kw>
+<kw name="Dictionary Should Contain Item" library="Collections">
+<arg>${MEU_JSON_COMPLEXO["pessoa"]["hobbies"]["livros"][1]}</arg>
+<arg>titulo</arg>
+<arg>Sócios no Crime</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" starttime="20230528 15:51:46.866" endtime="20230528 15:51:46.866"/>
+</kw>
+<kw name="Dictionary Should Contain Item" library="Collections">
+<arg>${MEU_JSON_COMPLEXO["pessoa"]["hobbies"]["livros"][2]}</arg>
+<arg>titulo</arg>
+<arg>Fortaleza Digital</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="PASS" starttime="20230528 15:51:46.866" endtime="20230528 15:51:46.866"/>
+</kw>
+<status status="PASS" starttime="20230528 15:51:46.857" endtime="20230528 15:51:46.866"/>
+</kw>
+<kw name="Confere listas no JSON">
+<kw name="Pega JSON">
+<var>${MEU_JSON_COMPLEXO}</var>
+<kw name="Get File" library="OperatingSystem">
+<var>${MEU_JSON_COMPLEXO}</var>
+<arg>C:\\Users\\danie\\OneDrive\\Área de Trabalho\\AutomacaoRobotFramework\\AutomacaoAPI/data/json_complexo.json</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20230528 15:51:46.867" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\danie\OneDrive\Área de Trabalho\AutomacaoRobotFramework\AutomacaoAPI\data\json_complexo.json"&gt;C:\Users\danie\OneDrive\Área de Trabalho\AutomacaoRobotFramework\AutomacaoAPI\data\json_complexo.json&lt;/a&gt;'.</msg>
+<msg timestamp="20230528 15:51:46.868" level="INFO">${MEU_JSON_COMPLEXO} = {
+    "pessoa": {
+        "nome": {
+            "primeiro_nome": "mayara",
+            "nomes_do_meio": "ribeiro",
+            "ultimo_nome": "fernandes",
+            "apelido": "May"
+        },
+     ...</msg>
+<status status="PASS" starttime="20230528 15:51:46.867" endtime="20230528 15:51:46.868"/>
+</kw>
+<kw name="To Json" library="RequestsLibrary">
+<var>${MEU_JSON_COMPLEXO}</var>
+<arg>${MEU_JSON_COMPLEXO}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<msg timestamp="20230528 15:51:46.868" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg timestamp="20230528 15:51:46.870" level="INFO">To JSON using : content={
+    "pessoa": {
+        "nome": {
+            "primeiro_nome": "mayara",
+            "nomes_do_meio": "ribeiro",
+            "ultimo_nome": "fernandes",
+            "apelido": "May"
+        },
+        "hobbies": {
+            "livros": [
+                {
+                    "titulo": "O Símbolo Perdido",
+                    "autor": "Dan Brown"
+                },
+                {
+                    "titulo": "Sócios no Crime",
+                    "autor": "Agatha Christie"
+                },
+                {
+                    "titulo": "Fortaleza Digital",
+                    "autor": "Dan Brown"
+                }
+            ],
+            "games": {
+                "PC": [
+                    "World Of Warcraft",
+                    "Last War",
+                    "Aika"
+                ],
+                "Xbox": [
+                    "Plants vs Zombies",
+                    "Battle Field",
+                    "Diablo III"
+                ]
+            }
+        }
+    }
+}
+ </msg>
+<msg timestamp="20230528 15:51:46.870" level="INFO">To JSON using : pretty_print=False </msg>
+<msg timestamp="20230528 15:51:46.870" level="INFO">${MEU_JSON_COMPLEXO} = {'pessoa': {'nome': {'primeiro_nome': 'mayara', 'nomes_do_meio': 'ribeiro', 'ultimo_nome': 'fernandes', 'apelido': 'May'}, 'hobbies': {'livros': [{'titulo': 'O Símbolo Perdido', 'autor': 'Dan Brown'},...</msg>
+<status status="PASS" starttime="20230528 15:51:46.868" endtime="20230528 15:51:46.870"/>
+</kw>
+<msg timestamp="20230528 15:51:46.870" level="INFO">${MEU_JSON_COMPLEXO} = {'pessoa': {'nome': {'primeiro_nome': 'mayara', 'nomes_do_meio': 'ribeiro', 'ultimo_nome': 'fernandes', 'apelido': 'May'}, 'hobbies': {'livros': [{'titulo': 'O Símbolo Perdido', 'autor': 'Dan Brown'},...</msg>
+<status status="PASS" starttime="20230528 15:51:46.867" endtime="20230528 15:51:46.870"/>
+</kw>
+<kw name="List Should Contain Value" library="Collections">
+<arg>${MEU_JSON_COMPLEXO["pessoa"]["hobbies"]["games"]["PC"]}</arg>
+<arg>Aika</arg>
+<doc>Fails if the ``value`` is not found from ``list``.</doc>
+<status status="PASS" starttime="20230528 15:51:46.870" endtime="20230528 15:51:46.870"/>
+</kw>
+<kw name="Get From List" library="Collections">
+<var>${GAME}</var>
+<arg>${MEU_JSON_COMPLEXO["pessoa"]["hobbies"]["games"]["Xbox"]}</arg>
+<arg>2</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230528 15:51:46.871" level="INFO">${GAME} = Diablo III</msg>
+<status status="PASS" starttime="20230528 15:51:46.870" endtime="20230528 15:51:46.871"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Game da posição 2 da lista: ${GAME}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230528 15:51:46.871" level="INFO">Game da posição 2 da lista: Diablo III</msg>
+<status status="PASS" starttime="20230528 15:51:46.871" endtime="20230528 15:51:46.871"/>
+</kw>
+<kw name="List Should Not Contain Duplicates" library="Collections">
+<arg>${MEU_JSON_COMPLEXO["pessoa"]["hobbies"]["games"]["Xbox"]}</arg>
+<doc>Fails if any element in the ``list`` is found from it more than once.</doc>
+<status status="PASS" starttime="20230528 15:51:46.871" endtime="20230528 15:51:46.872"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>@{LISTA_DE_LIVROS}</var>
+<arg>${MEU_JSON_COMPLEXO["pessoa"]["hobbies"]}</arg>
+<arg>livros</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20230528 15:51:46.872" level="INFO">@{LISTA_DE_LIVROS} = [ {'titulo': 'O Símbolo Perdido', 'autor': 'Dan Brown'} | {'titulo': 'Sócios no Crime', 'autor': 'Agatha Christie'} | {'titulo': 'Fortaleza Digital', 'autor': 'Dan Brown'} ]</msg>
+<status status="PASS" starttime="20230528 15:51:46.872" endtime="20230528 15:51:46.872"/>
+</kw>
+<for flavor="IN">
+<var>${LIVRO}</var>
+<value>@{LISTA_DE_LIVROS}</value>
+<iter>
+<var name="${LIVRO}">{'titulo': 'O Símbolo Perdido', 'autor': 'Dan Brown'}</var>
+<kw name="Log" library="BuiltIn">
+<arg>Título: ${LIVRO["titulo"]}\nAutor: ${LIVRO["autor"]}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230528 15:51:46.873" level="INFO">Título: O Símbolo Perdido
+Autor: Dan Brown</msg>
+<status status="PASS" starttime="20230528 15:51:46.872" endtime="20230528 15:51:46.873"/>
+</kw>
+<status status="PASS" starttime="20230528 15:51:46.872" endtime="20230528 15:51:46.873"/>
+</iter>
+<iter>
+<var name="${LIVRO}">{'titulo': 'Sócios no Crime', 'autor': 'Agatha Christie'}</var>
+<kw name="Log" library="BuiltIn">
+<arg>Título: ${LIVRO["titulo"]}\nAutor: ${LIVRO["autor"]}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230528 15:51:46.874" level="INFO">Título: Sócios no Crime
+Autor: Agatha Christie</msg>
+<status status="PASS" starttime="20230528 15:51:46.873" endtime="20230528 15:51:46.874"/>
+</kw>
+<status status="PASS" starttime="20230528 15:51:46.873" endtime="20230528 15:51:46.874"/>
+</iter>
+<iter>
+<var name="${LIVRO}">{'titulo': 'Fortaleza Digital', 'autor': 'Dan Brown'}</var>
+<kw name="Log" library="BuiltIn">
+<arg>Título: ${LIVRO["titulo"]}\nAutor: ${LIVRO["autor"]}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230528 15:51:46.875" level="INFO">Título: Fortaleza Digital
+Autor: Dan Brown</msg>
+<status status="PASS" starttime="20230528 15:51:46.874" endtime="20230528 15:51:46.875"/>
+</kw>
+<status status="PASS" starttime="20230528 15:51:46.874" endtime="20230528 15:51:46.875"/>
+</iter>
+<status status="PASS" starttime="20230528 15:51:46.872" endtime="20230528 15:51:46.875"/>
+</for>
+<status status="PASS" starttime="20230528 15:51:46.867" endtime="20230528 15:51:46.875"/>
+</kw>
+<status status="PASS" starttime="20230528 15:51:46.857" endtime="20230528 15:51:46.875"/>
 </test>
-<status status="PASS" starttime="20221221 21:07:04.683" endtime="20221221 21:07:11.442"/>
+<status status="PASS" starttime="20230528 15:51:46.733" endtime="20230528 15:51:46.877"/>
 </suite>
 <statistics>
 <total>
@@ -32,9 +272,12 @@
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Argumentos">Argumentos</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Conferindo Json">Conferindo Json</stat>
 </suite>
 </statistics>
 <errors>
+<msg timestamp="20230528 15:51:46.858" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg timestamp="20230528 15:51:46.861" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg timestamp="20230528 15:51:46.868" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
 </errors>
 </robot>

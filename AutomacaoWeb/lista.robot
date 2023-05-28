@@ -24,8 +24,8 @@ Exibir os meses
         Log to console     Esse é o mes: ${MESES[9]}
         Log to console     Esse é o mes: ${MESES[10]}
         Log to console     Esse é o mes: ${MESES[11]}
-
-
+        Log to console     Exemplos: ${MESES[8:10]}     #Pega intervalo
+        Log to console     Exemplo: ${MESES[0:10:2]}    #Pula de 2 em 2
 
 
 #*** Variables ***
